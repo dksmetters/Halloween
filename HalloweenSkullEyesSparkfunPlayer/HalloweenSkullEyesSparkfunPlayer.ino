@@ -57,8 +57,11 @@
 #include <SPI.h>
 //Add the SdFat Libraries
 #include <SdFat.h>
+#include <FreeStack.h>
+
 //and the MP3 Shield Library
-#include <SFEMP3Shield.h>
+// #include <SFEMP3Shield.h>
+#include <vs1053_SdFat.h>
 
 // These are the pins used for the breakout example
 #define BREAKOUT_RESET  9      // VS1053 reset pin (output)
@@ -85,7 +88,7 @@ SdFat sd;
 // Plays tracks in order. Tracks must be named
 // track000.mp3, track001.mp3, etc. Set maxTrack to determine how many
 // to look for.
-SFEMP3Shield MP3player;
+vs1053 MP3player;
 void printDetail(uint8_t type, int value);
 void drawEyes(bool sensingMotion);
 

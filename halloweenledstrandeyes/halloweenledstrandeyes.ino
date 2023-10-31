@@ -19,11 +19,11 @@ const int maxEyes = 5; // maximum number of concurrently active blinkers
 
 // dead-time between lighting of a range of pixels
 const int deadTimeMin = 20;
-const int deadTimeMax = 100;
+const int deadTimeMax = 80;
 
 // interval between blink starts - independent of position
 const int intervalMin = 10;
-const int intervalMax = 200;
+const int intervalMax = 100;
 
 const int stepInterval = 10;
 long lastStep = 0;

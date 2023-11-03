@@ -63,7 +63,7 @@ void setup() {
   printDirectory(SD.open("/"), 0);
   
   // Set volume for left, right channels. lower numbers == louder volume!
-  musicPlayer.setVolume(20,20);
+  musicPlayer.setVolume(1,1);
 
   // Timer interrupts are not suggested, better to use DREQ interrupt!
   //musicPlayer.useInterrupt(VS1053_FILEPLAYER_TIMER0_INT); // timer int
@@ -76,17 +76,14 @@ void setup() {
   Serial.println(F("Playing track 001"));
   musicPlayer.playFullFile("/track001.mp3");
   // Play another file in the background, REQUIRES interrupts!
-  Serial.println(F("Playing track 002"));
-  musicPlayer.startPlayingFile("/track002.mp3");
+  // Serial.println(F("Playing track 002"));
+  // musicPlayer.startPlayingFile("/track002.mp3");
 }
 
 void loop() {
   // File is playing in the background
   if (musicPlayer.stopped()) {
-    Serial.println("Done playing music");
-    while (1) {
-      delay(10);  // we're done! do nothing...
-    }
+   musicPlayer.playFullFile("/track001.mp3");
   }
   if (Serial.available()) {
     char c = Serial.read();
@@ -108,7 +105,7 @@ void loop() {
     }
   }
 
-  delay(100);
+  delay(50);
 }
 
 
